@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!-- 标题部分 -->
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_red_bg"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:src="@drawable/back" />
+
+        <ImageView 
+            android:id="@+id/iv_share"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/icon_share"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            
+            />
+
+        <ImageView
+            android:id="@+id/iv_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_share"
+            android:src="@drawable/icon_textsize"
+            />
+
+    </RelativeLayout>
+
+     <WebView 
+         android:id="@+id/wv_news_contents"
+         android:layout_height="0dp"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         />
+</LinearLayout>

@@ -30,6 +30,8 @@
         <!-- 引导页面 -->
         <activity android:name="com.dwb.zhbj.activity.GuideActivity" >
         </activity>
+        <!--  新闻详情页面 -->
+        <activity android:name="com.dwb.zhbj.activity.NewsDetailActivity" />
         <!-- 主页面 -->
         <!-- 为了Indicator的样式所以设置一个Theme -->
         <activity

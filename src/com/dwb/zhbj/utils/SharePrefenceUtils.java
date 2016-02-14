@@ -34,4 +34,26 @@ public class SharePrefenceUtils {
 		boolean result = sp.getBoolean(key, defValue);
 		return result;
 	}
+	
+	/**
+	 * ÉèÖÃ×Ö·û´®
+	 * @param context
+	 * @param key
+	 * @param value
+	 */
+	public static void setString(Context context , String key , String value) {
+		SharedPreferences sp = context.getSharedPreferences(PREFERENCENAME, Context.MODE_PRIVATE);
+		sp.edit().putString(key, value).commit();
+	}
+	
+	/**
+	 * »ñÈ¡×Ö·û´®
+	 * @param context
+	 * @param keyString
+	 * @param value
+	 */
+	public static String getString(Context context , String key , String defValue) {
+		SharedPreferences sp = context.getSharedPreferences(PREFERENCENAME, Context.MODE_PRIVATE);
+		return sp.getString(key, defValue);
+	}
 }

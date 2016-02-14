@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.dwb.zhbj"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.dwb.zhbj.view.TopNewsViewPager
+        android:id="@+id/vp_top_news"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="#a000"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tv_topNewsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="新闻标题"
+            android:textColor="#afff"
+            android:textSize="15sp" />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            app:fillColor="#88FF0000"
+            app:pageColor="#FF888888"
+            app:radius="3dp"
+            app:strokeWidth="0dp" />
+    </RelativeLayout>
+
+</RelativeLayout>
