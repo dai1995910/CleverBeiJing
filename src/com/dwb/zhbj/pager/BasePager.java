@@ -27,6 +27,7 @@ public abstract class BasePager {
 	//标题部分
 	public TextView ivTitle;
 	public SlidingMenu slidingMenu;
+	public ImageView ivChangeList;
 	
 	public BasePager(Activity activity) {
 		mActivity = activity;
@@ -42,6 +43,7 @@ public abstract class BasePager {
 		iv_open_slide_menu = (ImageView) view.findViewById(R.id.iv_open_slide_menu);
 		flContent = (FrameLayout) view.findViewById(R.id.fl_content);
 		ivTitle = (TextView) view.findViewById(R.id.iv_title);
+		ivChangeList = (ImageView) view.findViewById(R.id.iv_change_list); 
 		
 		slidingMenu = ((SlidingFragmentActivity)mActivity).getSlidingMenu();
 		

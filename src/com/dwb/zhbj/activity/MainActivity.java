@@ -1,5 +1,8 @@
 package com.dwb.zhbj.activity;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -35,6 +38,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		slidingMenu.setBehindOffset(300);
 		initFragment();
+		
 	}
 
 	private void initFragment() {

@@ -12,4 +12,6 @@ public class GlobalContants {
 //	public static String SERVICE_URL = "http://192.168.1.103:8080/zhbj";
 	//侧边栏数据地址
 	public static String SLIDING_CATEGORIES_URL = SERVICE_URL + "/categories.json";
+	//组图数据地址
+	public static String Photos_URL = SERVICE_URL + "/photos/photos_1.json";
 }

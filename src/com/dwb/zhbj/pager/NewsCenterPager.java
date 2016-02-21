@@ -41,14 +41,10 @@ public class NewsCenterPager extends BasePager {
 
 	@Override
 	public void initView() {
-//		TextView textView = new TextView(mActivity);
-//		textView.setText("NewsPager");
-//		textView.setTextColor(Color.BLUE);
-//		textView.setTextSize(20);
-//		flContent.addView(textView);
 		
 		ivTitle.setText("新闻");
 		iv_open_slide_menu.setVisibility(View.VISIBLE);
+		
 	}
 
 	@Override
@@ -68,7 +64,7 @@ public class NewsCenterPager extends BasePager {
 		
 		newsDetaliPager = new NewsDetaliPager(mActivity);
 		TopicDetailPager topicDetailPager = new TopicDetailPager(mActivity);
-		PhotoDetailPager photoDetailPager = new PhotoDetailPager(mActivity);
+		PhotoDetailPager photoDetailPager = new PhotoDetailPager(mActivity , ivChangeList);
 		InteractDetailPager interactDetailPager = new InteractDetailPager(mActivity);
 		detailList.add(newsDetaliPager);
 		detailList.add(topicDetailPager);
@@ -98,7 +94,7 @@ public class NewsCenterPager extends BasePager {
 			public void onSuccess(ResponseInfo<String> arg0) {
 				//获取成功
 				result = arg0.result;
-//				Log.d("NewsCenterPager", "获得到的数据是：" + result);
+				Log.d("NewsCenterPager", "获得到的数据是：" + result);
 				parseResult(result);
 				//传递数据给newDetailPager
 				((NewsDetaliPager)detailList.get(0)).setData(parseResult.data.get(0).children);
@@ -141,5 +137,13 @@ public class NewsCenterPager extends BasePager {
 		//初始化数据
 		detailList.get(chosedPosition).initData();
 		flContent.addView(detailList.get(chosedPosition).rootView);
+		
+		//右上角的显示和隐藏
+		if(detailList.get(chosedPosition) instanceof PhotoDetailPager) {
+			//显示右上角
+			ivChangeList.setVisibility(View.VISIBLE);
+		} else {
+			ivChangeList.setVisibility(View.INVISIBLE);
+		}
 	}
 }
