@@ -1,19 +1,5 @@
 package com.dwb.zhbj.pager.detail;
 
-import java.util.List;
-
-import com.dwb.zhbj.R;
-import com.dwb.zhbj.bean.PhotosData;
-import com.dwb.zhbj.bean.PhotosData.PhotoData.ItemData;
-import com.dwb.zhbj.global.GlobalContants;
-import com.google.gson.Gson;
-import com.lidroid.xutils.BitmapUtils;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-
 import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +10,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dwb.zhbj.R;
+import com.dwb.zhbj.bean.PhotosData;
+import com.dwb.zhbj.bean.PhotosData.PhotoData.ItemData;
+import com.dwb.zhbj.global.GlobalContants;
+import com.dwb.zhbj.utils.bitmaputils.MyBitmapUtils;
+import com.google.gson.Gson;
+import com.lidroid.xutils.BitmapUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 /**
  * 侧边栏“组图”页面的实现
@@ -113,9 +112,11 @@ public class PhotoDetailPager extends BaseMenuDetailPager implements
 	 */
 	class MyListAdapter extends BaseAdapter {
 		private BitmapUtils utils;
+		private MyBitmapUtils myUtils;
 
 		public MyListAdapter() {
 			utils = new BitmapUtils(mActivity);
+			myUtils = new MyBitmapUtils();
 			utils.configDefaultLoadingImage(R.drawable.news_pic_default);
 		}
 
@@ -150,7 +151,7 @@ public class PhotoDetailPager extends BaseMenuDetailPager implements
 				holder = (ViewHolder) convertView.getTag();
 
 				ItemData data = parsedData.data.news.get(position);
-				utils.display(holder.ivImage, data.getListimage());
+				myUtils.display(holder.ivImage, data.getListimage());
 
 				holder.tvImageTitle.setText(data.getTitle());
 

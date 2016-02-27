@@ -31,6 +31,7 @@ import com.dwb.zhbj.bean.NewsCenterTabData;
 import com.dwb.zhbj.bean.NewsCenterTabData.TabNewsData;
 import com.dwb.zhbj.global.GlobalContants;
 import com.dwb.zhbj.utils.SharePrefenceUtils;
+import com.dwb.zhbj.utils.bitmaputils.MyBitmapUtils;
 import com.dwb.zhbj.view.RefreshListView;
 import com.dwb.zhbj.view.RefreshListView.OnRefreshListener;
 import com.dwb.zhbj.view.TopNewsViewPager;
@@ -50,7 +51,6 @@ import com.viewpagerindicator.CirclePageIndicator;
  *
  */
 public class NewsDetailTabPager implements OnPageChangeListener {
-	// private String title;
 	private Activity mActivity;
 	public View rootView;
 	private TopNewsViewPager vpTopNews;

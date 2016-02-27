@@ -8,8 +8,9 @@ package com.dwb.zhbj.global;
 public class GlobalContants {
 	//服务器地址
 //	public static String SERVICE_URL = "http://192.168.0.101:8080/zhbj";
-	public static String SERVICE_URL = "http://10.0.2.2:8080/zhbj";
+//	public static String SERVICE_URL = "http://10.0.2.2:8080/zhbj";
 //	public static String SERVICE_URL = "http://192.168.1.103:8080/zhbj";
+	public static String SERVICE_URL = "http://1.zhihuibj.sinaapp.com/zhbj";
 	//侧边栏数据地址
 	public static String SLIDING_CATEGORIES_URL = SERVICE_URL + "/categories.json";
 	//组图数据地址
