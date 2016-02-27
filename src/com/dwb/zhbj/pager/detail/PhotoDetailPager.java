@@ -1,6 +1,7 @@
 package com.dwb.zhbj.pager.detail;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -36,10 +37,11 @@ public class PhotoDetailPager extends BaseMenuDetailPager implements
 	private GridView gvPhotos;
 	private ListView lvPhotos;
 	private ImageView ivChangeListStyle;
-	private PhotosData parsedData;
+	private PhotosData parsedData = null;
 	private boolean LIST_VISIBLE = true;
 	private boolean GRID_VISIBLE = false;
 	private MyListAdapter adapter;
+	private static String DEBUGTAG = "PhotoDetailPager";
 
 	public PhotoDetailPager(Activity activity, ImageView ivChangeList) {
 		super(activity);
@@ -60,6 +62,7 @@ public class PhotoDetailPager extends BaseMenuDetailPager implements
 	 */
 	@Override
 	public void initData() {
+		Log.d(DEBUGTAG, "PhotoDetailPager initData");
 		// 获取数据
 		getDataFromService();
 
@@ -149,13 +152,11 @@ public class PhotoDetailPager extends BaseMenuDetailPager implements
 				convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
-
-				ItemData data = parsedData.data.news.get(position);
-				myUtils.display(holder.ivImage, data.getListimage());
-
-				holder.tvImageTitle.setText(data.getTitle());
-
 			}
+			ItemData data = parsedData.data.news.get(position);
+			myUtils.display(holder.ivImage, data.getListimage());
+
+			holder.tvImageTitle.setText(data.getTitle());
 			return convertView;
 		}
 
