@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 import com.dwb.zhbj.R;
+import com.dwb.zhbj.utils.DimensUtils;
 import com.dwb.zhbj.utils.SharePrefenceUtils;
 
 /**
@@ -63,7 +64,7 @@ public class GuideActivity extends Activity {
 		llDotsContainer = (LinearLayout) findViewById(R.id.ll_dots_container);
 
 		redDot = findViewById(R.id.red_dot);
-		
+
 		btnStart = (Button) findViewById(R.id.btn_start);
 	}
 
@@ -104,17 +105,16 @@ public class GuideActivity extends Activity {
 	 */
 	private void initDots() {
 		LinearLayout.LayoutParams params;
-
 		for (int i = 0; i < mImageResources.length; i++) {
 			View dot = new View(this);
-			params = new LinearLayout.LayoutParams(15, 15);
+			dot.setBackgroundResource(R.drawable.sharp_gray_dot);
+			params = new LinearLayout.LayoutParams(DimensUtils.dp2px(this, 10),
+					DimensUtils.dp2px(this, 10));
 
 			if (i > 0) {
 				params.leftMargin = 15;
 			}
 			dot.setLayoutParams(params);
-			dot.setBackgroundResource(R.drawable.sharp_dot);
-
 			llDotsContainer.addView(dot);
 		}
 	}
@@ -123,17 +123,18 @@ public class GuideActivity extends Activity {
 	 * 设置监听器
 	 */
 	private void setListener() {
-		//设置按钮的监听器
+		// 设置按钮的监听器
 		btnStart.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(GuideActivity.this , MainActivity.class));
-				SharePrefenceUtils.setBooleanValue(GuideActivity.this, "is_user_guide_showed", true);
+				startActivity(new Intent(GuideActivity.this, MainActivity.class));
+				SharePrefenceUtils.setBooleanValue(GuideActivity.this,
+						"is_user_guide_showed", true);
 				finish();
 			}
 		});
-		//设置ViewPager的监听器
+		// 设置ViewPager的监听器
 		vpGuide.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
@@ -146,12 +147,12 @@ public class GuideActivity extends Activity {
 					int positionOffsetPixels) {
 				RelativeLayout.LayoutParams redDotParams = (LayoutParams) redDot
 						.getLayoutParams();
-				int left = (int) (distance * positionOffset
-						+ distance * position);
+				int left = (int) (distance * positionOffset + distance
+						* position);
 				redDotParams.leftMargin = left;
 				redDot.setLayoutParams(redDotParams);
-				
-				if(position == mImageResources.length - 1) {
+
+				if (position == mImageResources.length - 1) {
 					btnStart.setVisibility(View.VISIBLE);
 				}
 			}
@@ -184,8 +185,9 @@ public class GuideActivity extends Activity {
 						distance = llDotsContainer.getChildAt(1).getLeft()
 								- llDotsContainer.getChildAt(0).getLeft();
 						Log.d("debug", distance + "");
-						//解除监听，防止多次调用
-						llDotsContainer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+						// 解除监听，防止多次调用
+						llDotsContainer.getViewTreeObserver()
+								.removeGlobalOnLayoutListener(this);
 					}
 				});
 	}

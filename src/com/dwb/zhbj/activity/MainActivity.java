@@ -1,13 +1,9 @@
 package com.dwb.zhbj.activity;
 
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.transition.Slide;
 import android.view.Window;
 import android.widget.FrameLayout;
 
@@ -36,7 +32,9 @@ public class MainActivity extends SlidingFragmentActivity {
 		//设置触摸方式
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		slidingMenu.setMode(SlidingMenu.LEFT);
-		slidingMenu.setBehindOffset(300);
+		//设置侧边栏右边预留的空间大小
+		int width = getWindowManager().getDefaultDisplay().getWidth();	//获得屏幕的宽度
+		slidingMenu.setBehindOffset(width * 200 / 300);	//保证每个屏幕上都是320*480屏幕上的显示效果
 		initFragment();
 		
 	}
